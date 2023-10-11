@@ -1,0 +1,354 @@
+/* general issues */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* body properties - centering the div that holds all the data */
+body {
+    font-family: 'Roboto';
+    height: 100vh;
+    background: linear-gradient(to right, #4776e6, #8e54e9);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* div in the middle of the page that holds data */
+.main {
+    height: 85%;
+    width: 70%;
+    background-color: #fff;
+    border-radius: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+/* header of the main div - a line at the top and circle with image */
+.main-header {
+    top: 0;
+    position: absolute;
+    height: 10%;
+    width: 100%;
+    background-color: #18232B;
+    border-top-left-radius: 40px;
+    border-top-right-radius: 40px;
+}
+
+/* div that holds the image */
+.main-icon {
+    height: 100px;
+    width: 100px;
+    position: absolute;
+    top: 4%;
+    border-radius: 50%;
+    background-color: #fff;
+    background-image: url("images/security.png");
+    background-position: center;
+    background-position-x: 54%;
+    background-repeat: no-repeat;
+}
+
+/* div that holds description, assigned to and severity input fields */
+.issue-input {
+    height: 70%;
+    width: 30%;
+    border-radius: 40px;
+    margin-right: 20px;
+    margin-top: 8%;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+
+    position: relative;
+}
+
+/* heading of issue-input div */
+.issue-input-heading {
+    color: #4776e6;
+    font-size: 3rem;
+}
+
+/* div that holds warn signs, and description and assignedTo fields */
+.warn-and-input {
+    position: relative;
+    left: 5%;
+    margin-top: 2%;
+    width: 110%;
+    display: flex;
+}
+
+/* div that holds two warn siges if user did not fill the fields */
+.warn {
+    width: 10%;
+    margin-right: 2%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+}
+
+/* warn sign next to description input field */
+.warn-description {
+    position: absolute;
+    top: 34%;
+    right: 2%;
+    visibility: hidden;
+}
+
+/* warn sign next to assignedTo input field */
+.warn-assignedTo {
+    position: absolute;
+    bottom: 7%;
+    right: 2%;
+    visibility: hidden;
+}
+
+/* same properties for two input fields - description and assignedTo */
+.input-field {
+    color: #808080;
+    font-size: 20px;
+    width: 80%;
+    padding: 20px;
+    border: none;
+    background: none;
+    border-bottom: 4px solid #18232B;
+    transition: .3s;
+    margin-bottom: 5%;
+}
+
+.input-field:focus {
+    outline: none;
+    border-bottom: 4px solid #4776e6;
+}
+
+::placeholder {
+    color: #808080;
+}
+
+/* severity div that holds range of the issue - low, medium and high */
+.severity {
+    font-size: 20px;
+    color: #808080;
+    margin-top: 10%;
+    width: 80%;
+}
+
+.severity-ranking {
+    display: flex;
+    justify-content: space-evenly;
+    margin-bottom: 3%;
+}
+
+.severity-range {
+    -webkit-appearance: none;
+    width: 100%;
+    background: #fff;
+    border: 3px solid #18232B;
+    border-radius: 20px;
+    outline: none;
+}
+
+.severity-range:hover {
+    cursor: pointer;
+}
+
+/* styling the scrollbar for severity div */
+.severity-range::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    background: #4776e6;
+    height: 20px;
+    width: 20px;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+/* submit button for the info gathered in previous input fields */
+.input-button {
+    height: 10%;
+    width: 45%;
+    margin-top: 10%;
+    background-color: #4776e6;
+    color: #f4f4f4;
+    border: 3px solid #4776e6;
+    border-radius: 40px;
+    font-weight: 700;
+    transition: ease-in-out .3s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.input-button:hover {
+    cursor: pointer;
+    background-color: #fff;
+    border: 3px solid #4776e6;
+    color: #4776e6;
+}
+
+/* holding div for the div that displays issues */
+.issue-board {
+    height: 70%;
+    width: 50%;
+    border-radius: 40px;
+    padding: 10px;
+    margin-top: 8%;
+    margin-left: 5%;
+}
+
+/* div that holds created issues */
+/* overflow: auto has been added to allow scrolling inside of the div */
+.issues {
+    overflow: auto;
+    height: 100%;
+}
+
+/* issue card */
+.issue {
+    padding: 3% 0 3% 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-evenly;
+    border-radius: 40px;
+    width: 90%;
+    background-color: #f5f5f5;
+    color: #808080;
+    margin-left: 3.5%;
+    margin-bottom: 6%;
+    transition: .3s;
+    position: relative;
+}
+
+.issue:hover {
+    cursor: pointer;
+    background-color: rgba(150, 181, 247, 0.1);
+}
+
+.issue:hover > .delete-issue {
+    visibility: visible;
+}
+
+/* div that holds id and displays if the issue is opened or closed */
+.issue-id-open {
+    margin-left: 5%;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    flex: 1;
+}
+
+.issue-id {
+    display: flex;
+}
+
+.issue-open {
+    height: 30px;
+    width: 60%;
+    margin-top: 8%;
+    color: #fff;
+    background-color: #00cad9;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* div that holds description, severity and user assigned to the issue */
+.issue-main {
+    width: 100%;
+    height: 100%;
+    margin-left: 5%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    flex: 2;
+}
+
+.issue-description {
+    width: 80%;
+    margin-bottom: 5%;
+    word-wrap: break-word;
+}
+
+.issue-severity {
+    width: 25%;
+    display: flex;
+    align-items: center;
+    margin-bottom: 5%;
+    font-size: 1.3rem;
+}
+
+.issue-severity > p {
+    margin-left: 10%;
+}
+
+.issue-assignedTo {
+    width: 30%;
+    display: flex;
+    align-items: center;
+    font-size: 1.3rem;
+}
+
+.issue-assignedTo > p {
+    margin-left: 10%;
+}
+
+/* buttons - close and delete */
+.issue-buttons {
+    margin: 5%;
+    display: flex;
+    flex: 1;
+}
+
+.issue-button-close,
+.issue-button-delete {
+    height: 35px;
+    width: 100%;
+    color: #fff;
+    padding: 1rem;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.issue-button-close {
+    margin-right: 5%;
+    background-color: #fcba03;
+}
+
+.issue-button-close:hover {
+    background-color: #e6a901;
+}
+
+.issue-button-delete {
+    background-color: #e00909;
+}
+
+.issue-button-delete:hover {
+    background-color: #cc0606;
+}
+
+/* scrollbar inside of issues div */
+/* width of the scrollbar */
+.issues::-webkit-scrollbar {
+    width: 20px;
+}
+  
+/* Track */
+.issues::-webkit-scrollbar-track {
+    background: #DFE7E2;
+    border-radius: 15px;
+}
+  
+/* Handle */
+.issues::-webkit-scrollbar-thumb {
+    background: #4776e6;
+    border-radius: 15px;
+}

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IssueTrackerApp</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- main div that holds all the data -->
+    <div class="main">
+        <!-- top of the div -->
+        <div class="main-header"></div>
+        <!-- circle that holds the image -->
+        <div class="main-icon"></div>
+
+        <!-- issue input is the div where user inputs data -->
+        <div class="issue-input">
+            <!-- heading -->
+            <h1 class="issue-input-heading">Add New Issue</h1>
+
+            <!-- warn images that show when user did not input some data -->
+            <!-- description and assigned to input fields -->
+            <div class="warn-and-input">
+                <div class="warn">
+                    <img src="images/warn.png" alt="" class="warn-description">
+                    <img src="images/warn.png" alt="" class="warn-assignedTo">
+                </div>
+                <div class="input">
+                    <input type="text" placeholder="Description" class="input-field description">
+
+                    <input type="text" placeholder="Assigned To" class="input-field assigned">
+                </div>
+            </div>
+
+            <!-- severity field - input type range -->
+            <div class="severity">
+                <div class="severity-ranking">
+                    <p>Low</p>
+                    <p>Medium</p>
+                    <p>High</p>
+                </div>
+                <input type="range" min="0" max="2" step="1" value="0" class="severity-range">
+            </div>
+
+            <!-- submit button -->
+            <div class="input-button">Submit</div>
+        </div>
+
+        <!-- div that holds issue cards -->
+        <div class="issue-board">
+            <!-- div that displays issues -->
+            <div class="issues">
+
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
